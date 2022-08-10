@@ -12,4 +12,19 @@ php\api.04\content_root.php
 
 ~~~
 jc repl-mail-check -url:http://you-sute-name.com/repl/
+~~~
 
+
+
+Чтобы задать пароль на веб доступ укажите MD5 хэш пароля в файле:
+
+~~~
+php\site\web_pass\pass_md5.txt
+~~~
+
+
+Чтобы мониторить состояние репликации откройте адрес:
+
+~~~
+http://you-sute-name.com/repl/site/web_status_all.html
+~~~
