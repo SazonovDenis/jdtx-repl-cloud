@@ -1,0 +1,297 @@
+html {
+    font-family: Calibri, Arial, sans-serif;
+}
+
+.jadatex-flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.jadatex-flex-block {
+    align-self: stretch;
+    flex-grow: 1;
+    flex-basis: 150px;
+
+    margin: 5px;
+    padding: 5px;
+}
+
+.jadatex-flex-container_login {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.jadatex-flex-block_login {
+    align-self: baseline;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.button {
+    margin: 5px;
+    padding: 10px;
+
+    min-width: 90px;
+    max-width: 120px;
+
+    border: 2px solid #668066;
+    background-color: #dbe6da;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+h2 {
+    color: #3F51B5;
+}
+
+.button_yellow {
+    border-color: #cccc52;
+    background-color: #ffff82;
+}
+
+.button_red {
+    border-color: #cc1b14;
+    background-color: #ff4841;
+}
+
+.info_error {
+    border: solid 1px #cc1b14;
+    background-color: #ffe6e6;
+    color: #ff4841;
+    padding: 10px;
+    font-size: 90%;
+    text-align: center;
+}
+
+.info_normal {
+    font-size: 90%;
+    color: #00cd00;
+    text-align: center;
+}
+
+.repl-table {
+    border-collapse: collapse;
+}
+
+.repl-table td {
+    padding: 2px 5px;
+    border: 1px solid #8da388;
+}
+
+.repl-table-head-srv,
+.repl-table-head td {
+    text-align: center;
+}
+
+.repl-table-head td {
+    background-color: #daface;
+    font-size: 70%;;
+}
+
+.repl-table-head-srv {
+    background-color: #d2ffdd !important;
+}
+
+.repl-table-body td {
+
+}
+
+.repl-log {
+    font-size: 80%;
+    max-height: 180px;
+    overflow: auto;
+}
+
+.repl-log-dt {
+    color: #9394aa;
+}
+
+.required-info {
+    padding: 3px 6px;
+    color: #4e4e4e;
+    font-size: 80%;
+    border-radius: 5px;
+    border: solid 1px #d7ddea;
+    background: #e9f1ff;
+}
+
+.repair-info {
+    color: #4e4e4e;
+    font-size: 80%;
+    border-radius: 5px;
+    border: solid 1px #e7e3cb;
+    background: #ffffbe;
+}
+
+.repair-allowed-true {
+    border: solid 1px #d3efcb;
+    background: #ebffe9;
+}
+
+.log-lag-small {
+    color: #4a975e;
+}
+
+.log-lag-normal {
+    color: #8ea193;
+}
+
+.log-lag-big {
+    color: #aaa9a9;
+}
+
+.log-lag-huge {
+    color: #d4d4d4;
+}
+
+.repl-lag-tiny {
+    background-color: #ffffe3;
+}
+
+.repl-lag-small, ._data-lag, .in-que-lag {
+    background-color: #fffed0;
+}
+
+.repl-lag-big, ._data-lag, .in-que-lag-big {
+    background-color: #ffe0db;
+}
+
+.repl-lag-huge, ._data-lag-huge, .in-que-lag-huge {
+    background-color: #ffa8a8;
+}
+
+.in-que-not-all-received {
+    color: #db0000;
+}
+
+.repl-error {
+    font-size: 80%;
+    color: #8d0500;
+    max-height: 70px;
+    overflow: auto;
+    margin-top: 2px;
+}
+
+.repl-error-srv {
+    color: #db0000;
+    font-style: italic;
+}
+
+
+.box-trash {
+    background-color: #ffffe3 !important;
+}
+
+.box-lag {
+    color: #b5a400;
+}
+
+.box-lag-big {
+    color: #e00000;
+}
+
+.box-trash .box-lag,
+.box-trash .box-lag-big {
+    color: grey;
+}
+
+.lag-val {
+    font-size: 70%;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.lag-val-small {
+    color: #00cd00;
+}
+
+.lag-val-normal {
+    color: #008b00;
+}
+
+.lag-val-nosence {
+    color: #a0a0a0;
+}
+
+.lag-val-big {
+    color: #8d0500;
+}
+
+.lag-val-huge {
+    color: #e00000;
+}
+
+.repl-version {
+    font-size: 70%;
+    color: #8c8c8c;
+}
+
+.repl-state {
+    position: relative;
+}
+
+.repl-state-mute {
+    font-size: 70%;
+    background-color: rgba(255, 213, 0, 0.8) !important;
+    padding: 3px;
+    border-radius: 5px;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+}
+
+.repl-state-active {
+    font-size: 70%;
+    background-color: rgba(200, 250, 200, 0.7) !important;
+    padding: 3px;
+    border-radius: 5px;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+}
+
+.repl-database-info-diff {
+    color: #F44336;
+}
+
+.repl-ws {
+    padding-left: 10px !important;
+    max-width: 400px;
+}
+
+.repl-company {
+    background-color: #f5fff1 !important;
+}
+
+.repl-gray {
+    opacity: 0.5;
+}
+
+.state-info-text,
+.state-error-text {
+    width: 100%;
+    height: 100%;
+    padding: 5px 0px;
+}
+
+.state-error-text {
+    background: #fedcdc;
+    color: #F44336;
+}
+
+.state-info-text {
+    background: #b9deff;
+    color: #547154;
+}
+
+.state-render-helper {
+    display: none;
+    _background-image: url(../images/wait.gif);
+}
+

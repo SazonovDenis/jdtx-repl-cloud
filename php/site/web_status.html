@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <title>Мониторинг репликации Jadatex.Sync</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/ico" sizes="16x16" href="images/favicon_bw.ico">
+    <link rel="stylesheet" href="css/css.css">
+</head>
+
+
+<body>
+
+
+<div id="wait" style="font-family: Arial; font-size: 14px; color: rgb(40, 40, 40);">
+    <span style="
+    background-repeat: no-repeat;
+    background-size: 16px;
+    background-image: url(data:image/gif;base64,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);
+    padding-left: 20px;">
+    </span>
+    <span>Подготовка данных...</span>
+</div>
+
+<div id="hub" style="display: none;">
+    <div class="flex-container flex-container-row">
+        <div id="state-error-text" class="flex-item state-error-text"
+             v-if="state.error_text != null"
+             v-on:click="state.error_text = null; state_render_helper = new Date()">
+            {{state.error_text}}
+        </div>
+
+        <div v-bind:class="state.flash_result == 'error' ? 'flex-item state-error-text' : 'flex-item state-info-text'"
+             v-if="state.flash_text != null"
+             v-on:click="state.flash_text = null; state_render_helper = new Date()">
+            {{state.flash_text}}
+        </div>
+
+        <div class="state-render-helper">{{state_render_helper}}</div>
+    </div>
+</div>
+
+<div id="appList" style="display: none;">
+
+    <h3>{{dt}}</h3>
+
+    <table class="repl-table">
+        <tr class="repl-table repl-table-head">
+            <td rowspan=2>Компания/Станция</td>
+            <td colspan=4>Станция отправляет на сервер</td>
+            <td colspan=3 class="repl-table-head-srv">Сервер отправляет на станцию (to)</td>
+            <td colspan=3 class="repl-table-head-srv">Сервер отправляет на станцию (to001)</td>
+            <td rowspan=2>Станция обрабатывает: принято &ndash; обработано</td>
+        </tr>
+        <tr class="repl-table repl-table-head">
+            <td>Последний сеанс</td>
+            <td>Исходящая очередь: имеется &ndash; отправлено</td>
+            <td>Исходящие данные: актуальность</td>
+            <td>Ящик: возраст, размер</td>
+            <td class="repl-table-head-srv">Последний сеанс</td>
+            <td class="repl-table-head-srv">Данные: возраст, актуальность</td>
+            <td class="repl-table-head-srv">Ящик: возраст, размер</td>
+            <td class="repl-table-head-srv">to001: последний сеанс</td>
+            <td class="repl-table-head-srv">to001: возраст</td>
+            <td class="repl-table-head-srv">Ящик: возраст, размер</td>
+        </tr>
+
+        <template v-for="company in company_list"
+                  v-if="hub.user_input.company == null || hub.user_input.company == company.company_name">
+            <tr class="repl repl-body"
+                v-on:click="(hub.user_input.company == null) ? hub.user_input.company = company.company_name : hub.user_input.company = null">
+                <td colspan=13 class="repl-company">{{company.company_name}}</td>
+            </tr>
+
+            <tr v-for="ws in company.ws_list" v-if="ws.hide != true" class="repl repl-body">
+                <td class="repl-ws repl-state">
+                    <div v-if="ws.ws_title != null">
+                        {{ws.ws_title}}
+                    </div>
+                    <div>
+                        {{ws.ws_name}}
+                    </div>
+
+                    <div>
+                        <span v-if="ws.isMute == true" class="repl-state-mute">&#10680;MUTE</span>
+                    </div>
+
+                    <div class="repl-version">
+                        <span v-bind:class="hub.diffDatabaseInfoClass(company.ws_list[0].app_version, ws.app_version)"> app: {{ws.app_version}}</span>
+                        <span>, </span>
+                        <span v-bind:class="hub.diffDatabaseInfoClass(company.ws_list[0].databaseInfo, ws.databaseInfo)"> db: {{ws.databaseInfo}}</span>
+                    </div>
+
+
+                    <div v-if="ws.log_log != null && ws.log_log.logValues != null" class="repl-log">
+                        <span class="repl-log-dt">{{hub.dateToText(ws.log_log.dt)}}: </span>
+                        <span v-bind:class="hub.logLagClass(ws.log_log.dt)">
+                            <span v-if="ws.log_log.logValues.jc != null"><span class="repl-log-dt">jc: </span>{{ws.log_log.logValues.jc}}</span>
+                            <span v-if="ws.log_log.logValues.srv != null"><span class="repl-log-dt">srv: </span>{{ws.log_log.logValues.srv}}</span>
+                            <span v-if="ws.log_log.logValues.srvM != null"><span class="repl-log-dt">srvM: </span>{{ws.log_log.logValues.srvM}}</span>
+                            <span v-if="ws.log_log.logValues.srvMR != null"><span class="repl-log-dt">srvMR: </span>{{ws.log_log.logValues.srvMR}}<br></span>
+                            <span v-if="ws.log_log.logValues.ws != null"><span class="repl-log-dt">ws: </span>{{ws.log_log.logValues.ws}}</span>
+                            <span v-if="ws.log_log.logValues.wsMR != null"><span class="repl-log-dt">wsMR: </span>{{ws.log_log.logValues.wsMR}}</span>
+                        </span>
+                    </div>
+
+                    <div v-if="ws.repair_info != null && ws.repair_info.guid != null" v-bind:class="'repair-info repair-allowed-' + ws.repair_info.allowed">
+                        <span v-bind:class="hub.logLagClass(ws.repair_info.dt)">&#x1F6E0;{{ws.repair_info.dt}}: </span>
+                        <span>{{ws.repair_info.guid}}</span>
+                    </div>
+
+                    <div v-if="ws.errors != null && ws.errors.errors != null" class="repl-error">
+                        <span>Станция ({{ws.errors.dt}}): </span>
+                        <span v-for="error in ws.errors.errors">
+                            <li>{{error.operation}}: {{error.error}}
+                        </span>
+                    </div>
+                    <div v-if="ws.errors_mailRequest != null && ws.errors_mailRequest.errors != null" class="repl-error">
+                        <span>Станция ({{ws.errors_mailRequest.dt}}): </span>
+                        <span v-for="error in ws.errors_mailRequest.errors">
+                            <li>{{error.operation}}: {{error.error}}
+                        </span>
+                    </div>
+
+                    <div v-if="ws.errors_srv != null && ws.errors_srv.errors != null" class="repl-error repl-error-srv">
+                        <span>Сервер ({{ws.errors_srv.dt}}): </span>
+                        <span v-for="error in ws.errors_srv.errors">
+                            <li>{{error.operation}}: {{error.error}}
+                        </span>
+                    </div>
+                    <div v-if="ws.errors_srv_mail != null && ws.errors_srv_mail.errors != null" class="repl-error repl-error-srv">
+                        <span>Сервер ({{ws.errors_srv_mail.dt}}): </span>
+                        <span v-for="error in ws.errors_srv_mail.errors">
+                            <li>{{error.operation}}: {{error.error}}
+                        </span>
+                    </div>
+                    <div v-if="ws.errors_srv_mailRequest != null && ws.errors_srv_mailRequest.errors != null" class="repl-error repl-error-srv">
+                        <span>Сервер ({{ws.errors_srv_mailRequest.dt}}): </span>
+                        <span v-for="error in ws.errors_srv_mailRequest.errors">
+                            <li>{{error.operation}}: {{error.error}}
+                        </span>
+                    </div>
+                </td>
+
+                <td>
+                    <div v-bind:class="'lag-val ' + hub.secondsLagToClass(ws.from.repl_read_lag_sec)">&uarr;&nbsp;{{ws.from.last_ping_read_dt}}
+                    <div v-if="ws.from.repl_read_lag_sec > 20">
+                        {{ws.from.repl_read_lag_sec|secondsToText}}
+                    </div></div>
+                    <div v-bind:class="'lag-val ' + hub.secondsLagToClass(ws.from.repl_write_lag_sec)">&rarr;&nbsp;{{ws.from.last_ping_write_dt}}
+                    <div v-if="ws.from.repl_write_lag_sec > 20">
+                        {{ws.from.repl_write_lag_sec|secondsToText}}
+                    </div></div>
+                    <div v-if="ws.from.required_info != null && ws.from.required_info.requiredFrom != -1" class="required-info">
+                        <span>{{ws.from.required_info.requiredFrom}}..</span><span v-if="ws.from.required_info.requiredTo != -1">{{ws.from.required_info.requiredTo}}</span><span v-if="ws.from.required_info.requiredTo == -1">all</span>
+                        <span>exec:&nbsp;{{ws.from.required_info.executor}}, recreate:&nbsp;{{ws.from.required_info.recreate}}</span>
+                    </div>
+                </td>
+
+                <td v-bind:class="hub.diffAvailableDoneToClass(ws.out_queAvailable, ws.out_sendDone)">
+                    <span v-if="ws.out_queAvailable != null">{{ws.out_queAvailable}}
+                        <span v-if="ws.out_queAvailable != ws.out_sendDone"> &ndash; {{ws.out_sendDone}}</span>
+                    </span>
+                </td>
+                <td>
+                    {{ws.from.last_dtTo}}
+                    <div class="lag-val" v-if="ws.from.data_lag_sec > 20">{{ws.from.data_lag_sec|secondsToText}}</div>
+                </td>
+                <td v-bind:class="hub.diffBoxVsAvailableClass(ws.from.file_no_max, ws.out_sendDone)">
+                    <div v-bind:class="hub.diffBoxCountClass(ws.from.file_no_min, ws.from.file_no_max)">
+                        <span v-if="ws.from.file_no_min != null">
+                            {{ws.from.file_no_min}}
+                            <span class='repl-gray'>..</span>
+                            {{ws.from.file_no_max}},
+                        </span>
+                        <span v-html="hub.fileSize(ws.from.file_size)"></span>
+                    </div>
+                    <div v-if="ws.from.last_read != null" v-bind:class="hub.boxLagClass(ws.from.last_read.dt)">
+                        <span class="lag-val">чтение&uarr;: {{ws.from.last_read.dt}}</span><span
+                            class="lag-val"
+                            v-if="ws.from.last_read.dt_lag_sec > 120"><span>, </span><span
+                            v-html="hub.secondsToTextNBSP(ws.from.last_read.dt_lag_sec)"></span></span><span
+                            class="lag-val"
+                            v-if="ws.out_sendDone != ws.from.last_read.no">, {{ws.from.last_read.no}}/{{ws.from.last_read.part}}</span>
+                    </div>
+                    <div v-if="ws.from.last_write != null" v-bind:class="hub.boxLagClass(ws.from.last_write.dt)">
+                        <span class="lag-val">запись&rarr;: {{ws.from.last_write.dt}}</span><span
+                            class="lag-val"
+                            v-if="ws.from.last_write.dt_lag_sec > 120"><span>, </span><span
+                            v-html="hub.secondsToTextNBSP(ws.from.last_write.dt_lag_sec)"></span></span><span
+                            class="lag-val"
+                            v-if="ws.out_sendDone != ws.from.last_write.no">, {{ws.from.last_write.no}}/{{ws.from.last_write.part}}</span>
+                            <span class="lag-val repl-lag-small" v-if="ws.from.last_write.all == false">not commited</span>
+                    </div>
+                </td>
+
+                <td><div v-bind:class="'lag-val ' + hub.secondsLagToClass(ws.to.repl_write_lag_sec)">&darr;&nbsp;{{ws.to.last_ping_write_dt}}
+                    <div v-if="ws.to.repl_write_lag_sec > 20">
+                        {{ws.to.repl_write_lag_sec|secondsToText}}
+                    </div></div>
+                    <div v-bind:class="'lag-val ' + hub.secondsLagToClass(ws.to.repl_read_lag_sec)">&larr;&nbsp;{{ws.to.last_ping_read_dt}}
+                    <div v-if="ws.to.repl_read_lag_sec > 20">
+                        {{ws.to.repl_read_lag_sec|secondsToText}}
+                    </div></div>
+                    <div v-if="ws.to.required_info != null && ws.to.required_info.requiredFrom != -1" class="required-info">
+                        <span>{{ws.to.required_info.requiredFrom}}..</span><span v-if="ws.to.required_info.requiredTo != -1">{{ws.to.required_info.requiredTo}}</span><span v-if="ws.to.required_info.requiredTo == -1">all</span>
+                        <span>exec:&nbsp;{{ws.to.required_info.executor}}, recreate:&nbsp;{{ws.to.required_info.recreate}}</span>
+                    </div>
+                </td>
+                <td>
+                    <div>{{ws.to.last_no}}</div>
+                    <div>{{ws.to.last_dtTo}}</div>
+                    <div class="lag-val" v-if="ws.to.data_lag_sec > 20">{{ws.to.data_lag_sec|secondsToText}}</div>
+                </td>
+                <td v-bind:class="hub.diffBoxVsAvailableClass(ws.to.file_no_max, ws.in_queInNoAvailable)">
+                    <div v-bind:class="hub.diffBoxCountClass(ws.to.file_no_min, ws.to.file_no_max)">
+                        <span v-if="ws.to.file_no_min != null">{{ws.to.file_no_min}}<span class='repl-gray'>..</span>{{ws.to.file_no_max}}, </span><span
+                            v-html="hub.fileSize(ws.to.file_size)"></span>
+                    </div>
+                    <div v-if="ws.to.last_write != null" v-bind:class="hub.boxLagClass(ws.to.last_write.dt)">
+                        <span class="lag-val">запись&darr;: {{ws.to.last_write.dt}}</span><span
+                            v-if="ws.to.last_write.dt_lag_sec > 120" class="lag-val"><span>, </span><span
+                            v-html="hub.secondsToTextNBSP(ws.to.last_write.dt_lag_sec)"></span></span><span
+                            v-if="ws.to.last_no != ws.to.last_write.no" class="lag-val">, {{ws.to.last_write.no}}/{{ws.to.last_write.part}}</span>
+                            <span class="lag-val repl-lag-small" v-if="ws.to.last_write.all == false">not commited</span>
+                    </div>
+                    <div v-if="ws.to.last_read != null" v-bind:class="hub.boxLagClass(ws.to.last_read.dt)">
+                        <span class="lag-val">чтение&larr;: {{ws.to.last_read.dt}}</span><span
+                            v-if="ws.to.last_read.dt_lag_sec > 120" class="lag-val"><span>, </span><span
+                            v-html="hub.secondsToTextNBSP(ws.to.last_read.dt_lag_sec)"></span></span><span
+                            v-if="ws.to.last_no != ws.to.last_read.no" class="lag-val">, {{ws.to.last_read.no}}/{{ws.to.last_read.part}}</span>
+                    </div>
+                </td>
+
+                <td><div v-bind:class="'lag-val ' + hub.secondsLagToClass(ws.to001.repl_write_lag_sec)">&darr;&nbsp;{{ws.to001.last_ping_write_dt}}
+                    <div v-if="ws.to001.repl_write_lag_sec > 20">
+                        {{ws.to001.repl_write_lag_sec|secondsToText}}
+                    </div></div>
+                    <div v-bind:class="'lag-val ' + hub.secondsLagToClass(ws.to001.repl_read_lag_sec)">&larr;&nbsp;{{ws.to001.last_ping_read_dt}}
+                    <div v-if="ws.to001.repl_read_lag_sec > 20">
+                        {{ws.to001.repl_read_lag_sec|secondsToText}}
+                    </div></div>
+                    <div v-if="ws.to001.required_info != null && ws.to001.required_info.requiredFrom != -1" class="required-info">
+                        <span>{{ws.to001.required_info.requiredFrom}}..</span><span v-if="ws.to001.required_info.requiredTo != -1">{{ws.to001.required_info.requiredTo}}</span><span v-if="ws.to001.required_info.requiredTo == -1">all</span>
+                        <span>exec:&nbsp;{{ws.to001.required_info.executor}}, recreate:&nbsp;{{ws.to001.required_info.recreate}}</span>
+                    </div>
+                </td>
+                <td>
+                    <div>{{ws.to001.last_no}}</div>
+                    <div>{{ws.to001.last_dtTo}}</div>
+                    <div class="lag-val" v-if="ws.to001.data_lag_sec > 20">{{ws.to001.data_lag_sec|secondsToText}}</div>
+                </td>
+                <td v-bind:class="hub.diffBoxVsAvailableClass(ws.to001.file_no_max, ws.in_queInNoAvailable)">
+                    <div v-bind:class="hub.diffBoxCountClass(ws.to001.file_no_min, ws.to001.file_no_max)">
+                        <span v-if="ws.to001.file_no_min != null">{{ws.to001.file_no_min}}<span class='repl-gray'>..</span>{{ws.to001.file_no_max}}, </span><span
+                            v-html="hub.fileSize(ws.to001.file_size)"></span>
+                    </div>
+                    <div v-if="ws.to001.last_write != null" v-bind:class="hub.boxLagClass(ws.to001.last_write.dt, 'to001')">
+                        <span class="lag-val">запись&darr;: {{ws.to001.last_write.dt}}</span><span
+                            v-if="ws.to001.last_write.dt_lag_sec > 120" class="lag-val"><span>, </span><span
+                            v-html="hub.secondsToTextNBSP(ws.to001.last_write.dt_lag_sec)"></span></span><span
+                            v-if="ws.to001.last_no != ws.to001.last_write.no" class="lag-val">, {{ws.to001.last_write.no}}/{{ws.to001.last_write.part}}</span>
+                            <span class="lag-val repl-lag-small" v-if="ws.to001.last_write.all == false">not commited</span>
+                    </div>
+                    <div v-if="ws.to001.last_read != null" v-bind:class="hub.boxLagClass(ws.to001.last_read.dt, 'to001')">
+                        <span class="lag-val">чтение&larr;: {{ws.to001.last_read.dt}}</span><span
+                            v-if="ws.to001.last_read.dt_lag_sec > 120" class="lag-val"><span>, </span><span
+                            v-html="hub.secondsToTextNBSP(ws.to001.last_read.dt_lag_sec)"></span></span><span
+                            v-if="ws.to001.last_no != ws.to001.last_read.no" class="lag-val">, {{ws.to001.last_read.no}}/{{ws.to001.last_read.part}}</span>
+                    </div>
+                </td>
+
+                <td v-bind:class="hub.diffAvailableDoneToClass(ws.in_queInNoAvailable, ws.in_queInNoDone)">
+                    <div v-bind:class="hub.diffAllReceivedToClass(company.ws_list[0].in_queInNoAvailable, ws.in_queInNoAvailable, ws.in_queInNoDone)">
+                    <span v-if="ws.in_queInNoAvailable != null">{{ws.in_queInNoAvailable}}
+                        <span v-if="ws.in_queInNoAvailable != ws.in_queInNoDone"> &larr; {{ws.in_queInNoDone}}</span>
+                    </span>
+                    </div>
+                </td>
+
+            </tr>
+        </template>
+    </table>
+
+</div>
+
+
+</body>
+
+<script src="js/vue.js" defer></script>
+<script src="js/data.js" defer></script>
+
+</html>
