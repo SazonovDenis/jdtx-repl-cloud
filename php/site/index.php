@@ -19,12 +19,12 @@ if ($guid != null && $guid != undefined) {
 ?>
 <head>
     <link href="css/css.css" rel="stylesheet">
-    <link rel="shortcut icon" href="/keys/images/favicon_bw.ico">
+    <link rel="shortcut icon" href="images/favicon_bw.ico">
 
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
-    <title>Программа для ломбарда компании Jadatex</title>
+    <title>Мониторинг репликации Jadatex.Sync</title>
 </head>
 
 
@@ -35,7 +35,7 @@ if ($guid != null && $guid != undefined) {
 
     <div class="jadatex-flex-container_login">
         <div class="jadatex-flex-block_login">
-            <img src="images/jadatex_logo_200.png" alt="Jadatex logo">
+            <img src="images/logo_200.png">
         </div>
     </div>
 
