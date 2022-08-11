@@ -19,7 +19,7 @@ if ($guid != null && $guid != undefined) {
 ?>
 <head>
     <link href="css/css.css" rel="stylesheet">
-    <link rel="shortcut icon" href="images/favicon_bw.ico">
+    <link rel="shortcut icon" href="images/icon.png">
 
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
