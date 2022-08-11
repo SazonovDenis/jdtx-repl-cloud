@@ -5,7 +5,7 @@
 // =================================
 error_reporting(0);
 include "content_root.php";
-
+include "check_content_root.php";
 
 
 // Результат ok
