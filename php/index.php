@@ -1,6 +1,6 @@
 <head>
     <link href="site/css/css.css" rel="stylesheet">
-    <link rel="shortcut icon" href="site/images/favicon_bw.ico">
+    <link rel="shortcut icon" href="site/images/icon.png">
 
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
