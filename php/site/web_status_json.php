@@ -5,8 +5,8 @@
 
 //
 error_reporting(0);
-include "content_root.php";
-include "web_pass.php";
+include "../api.04/content_root.php";
+include "../auth/auth.php";
 
 
 // =================================
@@ -49,7 +49,7 @@ if ($guid != null && $guid != undefined) {
 // Список для всех клиентов - нужна авторизация
 
 //
-if ($token_cooke != $token_cooke_requred) {
+if (!isAuth()) {
   $res = [];
   $res["success"] = false;
   $error = [];
