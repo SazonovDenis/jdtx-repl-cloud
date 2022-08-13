@@ -11,11 +11,11 @@ include "../auth/auth.php";
 $pass = $_POST["pass"];
 
 //
-if (login($pass)) {
-  header('Location: web_status_all.html');
+if (!login($pass)) {
+  header('Location: index.php');
   exit;
 } else {
-  header('Location: index.php');
+  header('Location: web_status_all.html');
   exit;
 }
 

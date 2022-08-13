@@ -58,7 +58,7 @@ function login($password) {
         //
         setcookie("token", $token_cooke);
         //
-        return true;
+        return $token_cooke;
     }
 
     //
