@@ -23,11 +23,11 @@
 
     <div class="jadatex-flex-container_login">
         <div class="jadatex-flex-block_login button"> 
-            <a href="site/web_status_all.html">Панель мониторинга</> 
+            <a href="api.04/ping.php">Проверка cервера</> 
         </div> 
 
         <div class="jadatex-flex-block_login button"> 
-            <a href="api.04/ping.php">Проверка cервера</> 
+            <a href="site/web_status_all.html">Панель мониторинга</> 
         </div> 
     </div>
 
