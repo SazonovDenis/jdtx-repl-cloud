@@ -6,7 +6,7 @@
 error_reporting(0);
 include "content_root.php";
 include "param_version.php";
-include "param_guid_box.php";
+include "param_guid_box_post.php";
 include "check_content_root.php";
 include "check_guid.php";
 

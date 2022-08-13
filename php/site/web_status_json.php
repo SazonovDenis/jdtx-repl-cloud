@@ -20,7 +20,6 @@ if ($guid != null && $guid != undefined) {
 
   //
   if (!file_exists($guid_root)) {
-    //header("HTTP/1.1 415 Unsupported Media Type");
     print('{"success": false, "errors": [{"text": "Guid root not found, guid '.$guid.'"}]}');
     exit();
   }
@@ -65,8 +64,6 @@ if (!isAuth()) {
 
 //
 $res = [];
-//$res = array_merge($res, get_all_companies("02"));
-//$res = array_merge($res, get_all_companies("03"));
 $res = array_merge($res, get_all_companies($content_root));
 
 //
@@ -88,7 +85,8 @@ function get_all_companies($dir)
     $res_count = 0;
 
     //
-    $dirlist = glob($dir . "/????????????????.*", GLOB_ONLYDIR);
+    //$dirlist = glob($dir . "/????????????????.*", GLOB_ONLYDIR);
+    $dirlist = glob($dir . "/*", GLOB_ONLYDIR);
     foreach ($dirlist as $dir_name_company) {
         $company_res = [];
         $guid = substr($dir_name_company, strlen($dir)+1);
