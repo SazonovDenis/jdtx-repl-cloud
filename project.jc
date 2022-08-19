@@ -22,6 +22,9 @@ product = cm("Сборка") {
 
     // Упаковка продукта
     ut.runexe(showout: showout, cmd: "pkzip -add -recurse -path ..\\product.zip *", dir: "_product")
+
+    //
+    ut.runexe(showout: showout, cmd: "cmd /C rename product.zip replSuite-mail.zip")
 }
 
 
