@@ -104,7 +104,7 @@ h2 {
 
 .repl-log {
     font-size: 80%;
-    max-height: 180px;
+    _max-height: 180px;
     overflow: auto;
 }
 
@@ -199,6 +199,28 @@ h2 {
 .box-trash .box-lag,
 .box-trash .box-lag-big {
     color: grey;
+}
+
+.state {
+    position: relative;
+}
+
+.state-bar {
+    border: 1px solid #c8dee3;
+}
+
+.state-bar-in {
+    _border: 1px solid red;
+    height: 100%;
+    background-color: #60b0c0;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    opacity: 0.2;
+}
+
+.state-started {
+    color: #00cd00;
 }
 
 .lag-val {

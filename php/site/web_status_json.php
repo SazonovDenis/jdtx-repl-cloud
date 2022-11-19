@@ -195,50 +195,57 @@ function get_ws($dir_name_ws)
 
     // ws.errors
     if (file_exists($dir_name_ws . "/ws.errors")) {
-        $errors_str = file_get_contents($dir_name_ws . "/ws.errors");
-        $errors_json = json_decode($errors_str, true);
-        $errors_json["dt"] = strftime("%Y.%m.%d %H:%M:%S", strtotime($errors_json["dt"]));
-        $res_ws["errors"] = $errors_json;
+        $file_content_str = file_get_contents($dir_name_ws . "/ws.errors");
+        $file_content_json = json_decode($file_content_str, true);
+        $file_content_json["dt"] = strftime("%Y.%m.%d %H:%M:%S", strtotime($file_content_json["dt"]));
+        $res_ws["errors"] = $file_content_json;
     }
 
     // ws.errors.mailRequest
     if (file_exists($dir_name_ws . "/ws.errors.mailRequest")) {
-        $errors_str = file_get_contents($dir_name_ws . "/ws.errors.mailRequest");
-        $errors_json = json_decode($errors_str, true);
-        $errors_json["dt"] = strftime("%Y.%m.%d %H:%M:%S", strtotime($errors_json["dt"]));
-        $res_ws["errors_mailRequest"] = $errors_json;
+        $file_content_str = file_get_contents($dir_name_ws . "/ws.errors.mailRequest");
+        $file_content_json = json_decode($file_content_str, true);
+        $file_content_json["dt"] = strftime("%Y.%m.%d %H:%M:%S", strtotime($file_content_json["dt"]));
+        $res_ws["errors_mailRequest"] = $file_content_json;
     }
 
     // srv.errors
     if (file_exists($dir_name_ws . "/srv.errors")) {
-        $errors_str = file_get_contents($dir_name_ws . "/srv.errors");
-        $errors_json = json_decode($errors_str, true);
-        $errors_json["dt"] = strftime("%Y.%m.%d %H:%M:%S", strtotime($errors_json["dt"]));
-        $res_ws["errors_srv"] = $errors_json;
+        $file_content_str = file_get_contents($dir_name_ws . "/srv.errors");
+        $file_content_json = json_decode($file_content_str, true);
+        $file_content_json["dt"] = strftime("%Y.%m.%d %H:%M:%S", strtotime($file_content_json["dt"]));
+        $res_ws["errors_srv"] = $file_content_json;
     }
 
     // srv.errors.mail
     if (file_exists($dir_name_ws . "/srv.errors.mail")) {
-        $errors_str = file_get_contents($dir_name_ws . "/srv.errors.mail");
-        $errors_json = json_decode($errors_str, true);
-        $errors_json["dt"] = strftime("%Y.%m.%d %H:%M:%S", strtotime($errors_json["dt"]));
-        $res_ws["errors_srv_mail"] = $errors_json;
+        $file_content_str = file_get_contents($dir_name_ws . "/srv.errors.mail");
+        $file_content_json = json_decode($file_content_str, true);
+        $file_content_json["dt"] = strftime("%Y.%m.%d %H:%M:%S", strtotime($file_content_json["dt"]));
+        $res_ws["errors_srv_mail"] = $file_content_json;
     }
 
     // srv.errors.mailRequest
     if (file_exists($dir_name_ws . "/srv.errors.mailRequest")) {
-        $errors_str = file_get_contents($dir_name_ws . "/srv.errors.mailRequest");
-        $errors_json = json_decode($errors_str, true);
-        $errors_json["dt"] = strftime("%Y.%m.%d %H:%M:%S", strtotime($errors_json["dt"]));
-        $res_ws["errors_srv_mailRequest"] = $errors_json;
+        $file_content_str = file_get_contents($dir_name_ws . "/srv.errors.mailRequest");
+        $file_content_json = json_decode($file_content_str, true);
+        $file_content_json["dt"] = strftime("%Y.%m.%d %H:%M:%S", strtotime($file_content_json["dt"]));
+        $res_ws["errors_srv_mailRequest"] = $file_content_json;
     }
 
     // log.log
     if (file_exists($dir_name_ws . "/log.log")) {
-        $errors_str = file_get_contents($dir_name_ws . "/log.log");
-        $errors_json = json_decode($errors_str, true);
-        //$errors_json["dt"] = strftime("%Y.%m.%d %H:%M:%S", strtotime($errors_json["dt"]));
-        $res_ws["log_log"] = $errors_json;
+        $file_content_str = file_get_contents($dir_name_ws . "/log.log");
+        $file_content_json = json_decode($file_content_str, true);
+        //$file_content_json["dt"] = strftime("%Y.%m.%d %H:%M:%S", strtotime($file_content_json["dt"]));
+        $res_ws["log_log"] = $file_content_json;
+    }
+
+    // state.json
+    if (file_exists($dir_name_ws . "/state.json")) {
+        $file_content_str = file_get_contents($dir_name_ws . "/state.json");
+        $file_content_json = json_decode($file_content_str, true);
+        $res_ws["state_log"] = $file_content_json;
     }
 
     // repair.info    

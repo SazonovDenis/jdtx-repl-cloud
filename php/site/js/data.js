@@ -90,6 +90,30 @@ var hub = new Vue({
             }
             return class_name;
         },
+        stateClass: function (state) {
+            class_name = "state";
+            if (state.total > 0 && state.total > state.count) {
+                if (state.started === true) {
+                    class_name = class_name + " state-bar state-started";
+                } else {
+                    class_name = class_name + " ";
+                }
+            } else {
+                if (state.started === true) {
+                    class_name = class_name + " state-started";
+                } else {
+                    class_name = class_name + "";
+                }
+            }
+            return class_name;
+        },
+        stateBarShow: function (state) {
+            if (state.total > 0 && state.total > state.count) {
+                return true;
+            } else {
+                return false;
+            }
+        },
         boxLagClass: function (dt, boxName) {
             var seconds = (new Date() - new Date(dt)) / 1000;
             var class_name = "";
@@ -357,7 +381,7 @@ var getUrlParameter = function getUrlParameter(sParam) {
 
 
 set_timeout_reload = function () {
-    setTimeout("do_reload()", 5000);
+    setTimeout("do_reload()", 2000);
 };
 
 do_reload = function () {
