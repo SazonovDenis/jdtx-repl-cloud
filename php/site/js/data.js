@@ -381,7 +381,7 @@ var getUrlParameter = function getUrlParameter(sParam) {
 
 
 set_timeout_reload = function () {
-    setTimeout("do_reload()", 2000);
+    setTimeout("do_reload()", 1000);
 };
 
 do_reload = function () {
