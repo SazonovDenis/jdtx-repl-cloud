@@ -112,10 +112,10 @@
                         </span>
                     </div>
 
-                    <div v-if="ws.state_log != null && ws.state_log.__childs__ != null" class="repl-log">
-                        <div v-for="state in ws.state_log.__childs__" style="padding-left: 0px; padding-top: 2px;">
+                    <div v-if="ws.state_log != null && ws.state_log.__childs__ != null && ws.state_log.__childs__[0].__childs__ != null" class="repl-log">
+                        <div v-for="state in ws.state_log.__childs__[0].__childs__" style="padding-left: 0px; padding-top: 2px;">
                             <div v-bind:class="hub.stateClass(state)">
-                                {{ state["log.serviceName"] }}: {{ state.name }} <span v-if="state.count != state.total">{{ state.count }} / {{ state.total }}</span> <span>{{ state["log.name"] }} {{ state["log.text"] }}</span>
+                                {{ state["log.serviceName"] }}: {{ state.name }} <span v-if="state.count != state.total">{{ state.count }} / {{ state.total }}</span> <span>{{ state["_log.name"] }} {{ state["_log.text"] }}</span>
                             </div>
 
                             <div v-for="state1 in state.__childs__" style="padding-left: 10px; padding-top: 2px;" v-bind:class="(state1.started === true) ? 'lag-val-small' : 'lag-val-nosence'">
