@@ -205,6 +205,7 @@ h2 {
     position: relative;
     height: 15px;
     min-width: 200px;
+    overflow: auto;
 }
 
 .state-bar {
@@ -213,6 +214,7 @@ h2 {
     left: -1px;
     top: -2px;
     _padding-bottom: 2px;
+    overflow: auto;
 }
 
 .state-bar-in {

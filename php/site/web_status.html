@@ -112,29 +112,29 @@
                         </span>
                     </div>
 
-                    <div v-if="ws.state_log != null && ws.state_log.__childs__ != null && ws.state_log.__childs__[0].__childs__ != null" class="repl-log">
-                        <div v-for="state in ws.state_log.__childs__[0].__childs__" style="padding-left: 0px; padding-top: 2px;">
-                            <div v-bind:class="hub.stateClass(state)">
-                                {{ state["log.serviceName"] }}: {{ state.name }} <span v-if="state.count != state.total">{{ state.count }} / {{ state.total }}</span> <span>{{ state["_log.name"] }} {{ state["_log.text"] }}</span>
+                    <div v-if="ws.state_log != null && ws.state_log.__childs__ != null && ws.state_log.__childs__" class="repl-log">
+                        <div v-for="state in ws.state_log.__childs__" style="padding-left: 0px; padding-top: 2px;">
+                            <div v-bind:class="hub.stateClass(state)" v-if="state.__childs__ != null">
+                                {{ state.name }} {{ state["log.serviceName"] }}<span v-if="state.count != state.total">{{ state.count }} / {{ state.total }}</span> <span>{{ state["log.name"] }} {{ state["log.text"] }}</span>
                             </div>
 
                             <div v-for="state1 in state.__childs__" style="padding-left: 10px; padding-top: 2px;" v-bind:class="(state1.started === true) ? 'lag-val-small' : 'lag-val-nosence'">
                                 <div v-bind:class="hub.stateClass(state1)">
-                                    {{ state1["log.serviceName"] }}: {{ state1.name }} <span v-if="state1.count != state1.total">{{ state1.count }} / {{ state1.total }}</span> <span>{{ state1["_log.name"] }} {{ state1["_log.text"] }}</span>
+                                    {{ state1.name }} <span v-if="!state1.name">{{ state1["log.serviceName"] }}</span> <span v-if="state1.count != state1.total"> {{ state1.count }} / {{ state1.total }}</span> <span>{{ state1["_log.name"] }} {{ state1["_log.text"] }}</span>
 
                                     <div v-if="hub.stateBarShow(state1)" class="state-bar-in" v-bind:style="'width: '+(state1.count/state1.total*100)+'%'">&nbsp;</div>
                                 </div>
 
                                 <div v-for="state2 in state1.__childs__" style="padding-left: 20px; padding-top: 2px;" v-bind:class="(state2.started === true) ? 'lag-val-small' : 'lag-val-nosence'">
                                     <div v-bind:class="hub.stateClass(state2)">
-                                        {{ state2["log.serviceName"] }}: {{ state2.name }} <span v-if="state2.count != state2.total">{{ state2.count }} / {{ state2.total }}</span> <span>{{ state2["_log.name"] }} {{ state2["_log.text"] }}</span>
+                                        {{ state2.name }} <span v-if="!state2.name">{{ state2["log.serviceName"] }}</span> <span v-if="state2.count != state2.total"> {{ state2.count }} / {{ state2.total }}</span> <span v-if="state2.started">{{ state2["_log.name"] }} {{ state2["log.text"] }}</span>
 
                                         <div v-if="hub.stateBarShow(state2)" class="state-bar-in" v-bind:style="'width: '+(state2.count/state2.total*100)+'%'">&nbsp;</div>
                                     </div>
 
                                     <div v-for="state3 in state2.__childs__" style="padding-left: 30px; padding-top: 2px;" v-bind:class="(state3.started === true) ? 'lag-val-small' : 'lag-val-nosence'">
                                         <div v-bind:class="hub.stateClass(state3)">
-                                            {{ state3["log.serviceName"] }}: {{ state3.name }} <span v-if="state3.count != state3.total">{{ state3.count }} / {{ state3.total }}</span> <span>{{ state3["_log.name"] }} {{ state3["_log.text"] }}</span>
+                                            {{ state3.name }} <span v-if="!state3.name">{{ state3["log.serviceName"] }}</span> <span v-if="true || state3.count != state3.total"> {{ state3.count }} / {{ state3.total }}</span> <span v-if="state3.started">{{ state3["_log.name"] }} {{ state3["log.text"] }}</span>
 
                                             <div v-if="hub.stateBarShow(state3)" class="state-bar-in" v-bind:style="'width: '+(state3.count/state3.total*100)+'%'">&nbsp;</div>
                                         </div>
