@@ -1,9 +1,11 @@
 <?php
 
 //
+$protocolVersion_expected = "04";
+
+//
 $protocolVersion = $_GET["protocolVersion"];
 $appVersion = $_GET["appVersion"];
-$protocolVersion_expected = "04";
 
 //
 if ($protocolVersion == "") {
