@@ -113,7 +113,8 @@
                     </div>
 
                     <div v-if="ws.state_log != null && ws.state_log.__childs__ != null && ws.state_log.__childs__" class="repl-log">
-                        <div v-for="state in ws.state_log.__childs__" style="padding-left: 0px; padding-top: 2px;">
+                        <span class="repl-log-dt">{{hub.dateToText(ws.state_log.dt)}}: </span>
+                        <div v-for="state in ws.state_log.__childs__" style="padding-left: 0px; padding-top: 2px;" v-bind:class="hub.logLagClass(ws.state_log.dt)">
                             <div v-bind:class="hub.stateClass(state)" v-if="state.__childs__ != null">
                                 {{ state.name }} {{ state["log.serviceName"] }}<span v-if="state.count != state.total">{{ state.count }} / {{ state.total }}</span> <span>{{ state["log.name"] }} {{ state["log.text"] }}</span>
                             </div>

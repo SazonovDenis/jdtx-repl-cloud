@@ -15,8 +15,8 @@ var hub = new Vue({
     },
     methods: {
         dateToText: function (dateUTC) {
-          var s = (new Date(dateUTC)).toLocaleString();
-          s = s.substring(6, 10) + "." + s.substring(3, 5) + "." + s.substring(0, 2) + " " + s.substring(11);
+          var s = (new Date(dateUTC)).toISOString();  // 2023-04-18T14:48:49.000Z:
+          s = s.substring(0, 4) + "." + s.substring(5, 7) + "." + s.substring(8, 10) + " " + s.substring(11,19);
           return s;
         },
         secondsToText: function (seconds) {
