@@ -135,11 +135,11 @@ h2 {
 }
 
 .log-lag-small {
-    color: #4a975e;
+    color: #00cd00;
 }
 
 .log-lag-normal {
-    color: #8ea193;
+  color: #008b00;
 }
 
 .log-lag-big {
@@ -230,7 +230,7 @@ h2 {
 }
 
 .state-started {
-    color: #00cd00;
+  color: #008b00;
 }
 
 .lag-val {
