@@ -80,7 +80,7 @@
                 <td colspan=13 class="repl-company">{{company.company_name}}</td>
             </tr>
 
-            <tr v-for="ws in company.ws_list" v-if="ws.hide != true" class="repl repl-body">
+            <tr v-for="ws in company.ws_list" v-if="ws.hide != true" class="repl repl-body" @click="hub.user_input.expand_company[ws.ws_name] = !hub.user_input.expand_company[ws.ws_name]">
                 <td class="repl-ws repl-state">
                     <div v-if="ws.ws_title != null">
                         {{ws.ws_title}}
@@ -112,7 +112,7 @@
                         </div>
                     </div>
 
-                    <div v-if="ws.state_log != null && ws.state_log.__childs__ != null && ws.state_log.__childs__" class="repl-log">
+                    <div v-if="hub.user_input.expand_company[ws.ws_name]==true && ws.state_log != null && ws.state_log.__childs__ != null && ws.state_log.__childs__" class="repl-log">
                         <span class="repl-log-dt">{{hub.dateToText(ws.state_log.dt)}}: </span>
                         <div v-for="state in ws.state_log.__childs__" style="padding-left: 0px; padding-top: 2px;" v-bind:class="hub.logLagClass(ws.state_log.dt)">
                             <div v-bind:class="hub.stateClass(state)" v-if="state.__childs__ != null">

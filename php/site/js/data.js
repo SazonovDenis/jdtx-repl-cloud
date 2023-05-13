@@ -10,7 +10,8 @@ var hub = new Vue({
             flash_text: null
         },
         user_input: {
-            company: null
+            company: null,
+            expand_company: {},
         }
     },
     methods: {
